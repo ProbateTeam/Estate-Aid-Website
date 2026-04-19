@@ -154,31 +154,113 @@ function ean_fallback_menu() {
 
 function ean_get_social_links() {
 	return array(
-		'youtube'  => get_theme_mod( 'ean_social_youtube', 'https://youtube.com' ),
-		'linkedin' => get_theme_mod( 'ean_social_linkedin', '#' ),
-		'facebook' => get_theme_mod( 'ean_social_facebook', '#' ),
+		'youtube'  => ean_get_theme_value( 'ean_social_youtube' ),
+		'linkedin' => ean_get_theme_value( 'ean_social_linkedin' ),
+		'facebook' => ean_get_theme_value( 'ean_social_facebook' ),
 	);
 }
 
-function ean_get_home_defaults() {
+function ean_get_theme_defaults() {
 	return array(
-		'hero_eyebrow'            => __( 'your estate administration concierge', 'estate-aid-network' ),
-		'hero_heading'            => __( 'we handle it, or connect you with those who can.', 'estate-aid-network' ),
-		'hero_description'        => __( "navigating probate requires coordinating attorneys, real estate professionals, accountants, contractors, and more. we're your single point of contact for everything.", 'estate-aid-network' ),
-		'video_heading'           => __( 'how estate aid network works', 'estate-aid-network' ),
-		'video_description'       => __( 'watch this 3-minute overview to understand our concierge approach to estate administration.', 'estate-aid-network' ),
-		'youtube_url'             => 'https://www.youtube.com/embed/dQw4w9WgXcQ',
-		'youtube_channel_url'     => 'https://youtube.com',
-		'video_supporting_text'   => __( 'new guides every week on probate, estate sales, and property management', 'estate-aid-network' ),
-		'testimonial_quote'       => __( '"estate aid network made the impossible feel manageable. they connected me with an attorney, handled the estate sale, and even got us a cash offer on the property. one call, everything handled."', 'estate-aid-network' ),
-		'testimonial_attribution' => __( 'sarah m., denver, co', 'estate-aid-network' ),
-		'cta_primary_url'         => '#resources',
-		'cta_secondary_url'       => '#cash-offer',
+		'ean_social_youtube'               => 'https://youtube.com',
+		'ean_social_linkedin'              => '#',
+		'ean_social_facebook'              => '#',
+		'ean_contact_phone'                => '(555) 123-4567',
+		'ean_contact_phone_link'           => '5551234567',
+		'ean_contact_email'                => 'help@estateaid.net',
+		'ean_newsletter_privacy'           => __( 'we respect your privacy', 'estate-aid-network' ),
+		'ean_footer_about_title'           => __( 'estate aid network', 'estate-aid-network' ),
+		'ean_footer_tagline'               => __( 'your estate administration concierge', 'estate-aid-network' ),
+		'ean_footer_description'           => __( 'connecting families with trusted professionals for every stage of probate and estate settlement.', 'estate-aid-network' ),
+		'ean_home_hero_eyebrow'            => __( 'your estate administration concierge', 'estate-aid-network' ),
+		'ean_home_hero_heading'            => __( 'we handle it, or connect you with those who can.', 'estate-aid-network' ),
+		'ean_home_hero_description'        => __( "navigating probate requires coordinating attorneys, real estate professionals, accountants, contractors, and more. we're your single point of contact for everything.", 'estate-aid-network' ),
+		'ean_home_video_heading'           => __( 'how estate aid network works', 'estate-aid-network' ),
+		'ean_home_video_description'       => __( 'watch this 3-minute overview to understand our concierge approach to estate administration.', 'estate-aid-network' ),
+		'ean_home_youtube_url'             => 'https://www.youtube.com/embed/dQw4w9WgXcQ',
+		'ean_home_youtube_channel_url'     => 'https://youtube.com',
+		'ean_home_video_button_text'       => __( 'subscribe to our channel', 'estate-aid-network' ),
+		'ean_home_video_supporting_text'   => __( 'new guides every week on probate, estate sales, and property management', 'estate-aid-network' ),
+		'ean_home_features_eyebrow'        => __( 'what we do', 'estate-aid-network' ),
+		'ean_home_feature_1_title'         => __( 'connect you with professionals', 'estate-aid-network' ),
+		'ean_home_feature_1_description'   => __( 'Vetted attorneys, agents, accountants, appraisers, and contractors in your area.', 'estate-aid-network' ),
+		'ean_home_feature_1_link_text'     => __( 'explore network', 'estate-aid-network' ),
+		'ean_home_feature_1_link_url'      => '#professionals',
+		'ean_home_feature_2_title'         => __( 'provide cash offers', 'estate-aid-network' ),
+		'ean_home_feature_2_description'   => __( 'Need to sell inherited real estate, vehicles, or personal property? We buy or connect you with buyers.', 'estate-aid-network' ),
+		'ean_home_feature_2_link_text'     => __( 'get an offer', 'estate-aid-network' ),
+		'ean_home_feature_2_link_url'      => '#cash-offer',
+		'ean_home_feature_3_title'         => __( 'guide you through probate', 'estate-aid-network' ),
+		'ean_home_feature_3_description'   => __( 'From securing property to closing the estate, we provide resources and coordination every step.', 'estate-aid-network' ),
+		'ean_home_feature_3_link_text'     => __( 'view resources', 'estate-aid-network' ),
+		'ean_home_feature_3_link_url'      => '#resources',
+		'ean_home_stat_1_value'            => '2,500+',
+		'ean_home_stat_1_label'            => __( 'families served', 'estate-aid-network' ),
+		'ean_home_stat_2_value'            => '45',
+		'ean_home_stat_2_label'            => __( 'markets nationwide', 'estate-aid-network' ),
+		'ean_home_stat_3_value'            => '500+',
+		'ean_home_stat_3_label'            => __( 'vetted professionals', 'estate-aid-network' ),
+		'ean_home_stat_4_value'            => '$0',
+		'ean_home_stat_4_label'            => __( 'cost to families', 'estate-aid-network' ),
+		'ean_home_testimonial_quote'       => __( '"estate aid network made the impossible feel manageable. they connected me with an attorney, handled the estate sale, and even got us a cash offer on the property. one call, everything handled."', 'estate-aid-network' ),
+		'ean_home_testimonial_attribution' => __( 'sarah m., denver, co', 'estate-aid-network' ),
+		'ean_home_services_eyebrow'        => __( 'explore our services', 'estate-aid-network' ),
+		'ean_home_service_1_title'         => __( 'Probate Attorneys', 'estate-aid-network' ),
+		'ean_home_service_1_description'   => __( 'Experienced estate administration lawyers in your area.', 'estate-aid-network' ),
+		'ean_home_service_1_url'           => '#attorneys',
+		'ean_home_service_2_title'         => __( 'Real Estate Services', 'estate-aid-network' ),
+		'ean_home_service_2_description'   => __( 'Trusted agents and buyers for inherited property transitions.', 'estate-aid-network' ),
+		'ean_home_service_2_url'           => '#real-estate',
+		'ean_home_service_3_title'         => __( 'Property Security', 'estate-aid-network' ),
+		'ean_home_service_3_description'   => __( 'Secure, preserve, and prepare vacant homes with vetted help.', 'estate-aid-network' ),
+		'ean_home_service_3_url'           => '#property-security',
+		'ean_home_service_4_title'         => __( 'Estate Sales', 'estate-aid-network' ),
+		'ean_home_service_4_description'   => __( 'Organize, market, and clear personal property with care.', 'estate-aid-network' ),
+		'ean_home_service_4_url'           => '#estate-sales',
+		'ean_home_service_5_title'         => __( 'Financial Services', 'estate-aid-network' ),
+		'ean_home_service_5_description'   => __( 'Connect with accountants, appraisers, and support partners.', 'estate-aid-network' ),
+		'ean_home_service_5_url'           => '#financial-services',
+		'ean_home_service_6_title'         => __( 'View All Services', 'estate-aid-network' ),
+		'ean_home_service_6_description'   => __( 'See the full network of professionals and support options.', 'estate-aid-network' ),
+		'ean_home_service_6_url'           => '#services',
+		'ean_home_cta_title'               => __( 'ready to get help?', 'estate-aid-network' ),
+		'ean_home_cta_meta'                => __( 'no cost to families - nationwide service', 'estate-aid-network' ),
+		'ean_home_cta_primary_text'        => __( 'free resources package', 'estate-aid-network' ),
+		'ean_home_cta_primary_url'         => '#resources',
+		'ean_home_cta_secondary_text'      => __( 'get cash offer', 'estate-aid-network' ),
+		'ean_home_cta_secondary_url'       => '#cash-offer',
 	);
+}
+
+function ean_get_theme_value( $key ) {
+	$defaults = ean_get_theme_defaults();
+	return get_theme_mod( $key, $defaults[ $key ] ?? '' );
 }
 
 function ean_get_home_field( $key ) {
-	$defaults = ean_get_home_defaults();
+	$mapped_keys = array(
+		'hero_eyebrow'            => 'ean_home_hero_eyebrow',
+		'hero_heading'            => 'ean_home_hero_heading',
+		'hero_description'        => 'ean_home_hero_description',
+		'video_heading'           => 'ean_home_video_heading',
+		'video_description'       => 'ean_home_video_description',
+		'youtube_url'             => 'ean_home_youtube_url',
+		'youtube_channel_url'     => 'ean_home_youtube_channel_url',
+		'video_button_text'       => 'ean_home_video_button_text',
+		'video_supporting_text'   => 'ean_home_video_supporting_text',
+		'features_eyebrow'        => 'ean_home_features_eyebrow',
+		'testimonial_quote'       => 'ean_home_testimonial_quote',
+		'testimonial_attribution' => 'ean_home_testimonial_attribution',
+		'services_eyebrow'        => 'ean_home_services_eyebrow',
+		'cta_title'               => 'ean_home_cta_title',
+		'cta_meta'                => 'ean_home_cta_meta',
+		'cta_primary_text'        => 'ean_home_cta_primary_text',
+		'cta_primary_url'         => 'ean_home_cta_primary_url',
+		'cta_secondary_text'      => 'ean_home_cta_secondary_text',
+		'cta_secondary_url'       => 'ean_home_cta_secondary_url',
+	);
+
+	$theme_key = $mapped_keys[ $key ] ?? $key;
 
 	if ( function_exists( 'get_field' ) ) {
 		$value = get_field( $key );
@@ -188,5 +270,84 @@ function ean_get_home_field( $key ) {
 		}
 	}
 
-	return $defaults[ $key ] ?? '';
+	return ean_get_theme_value( $theme_key );
+}
+
+function ean_get_home_features() {
+	return array(
+		array(
+			'title'       => ean_get_theme_value( 'ean_home_feature_1_title' ),
+			'description' => ean_get_theme_value( 'ean_home_feature_1_description' ),
+			'link_text'   => ean_get_theme_value( 'ean_home_feature_1_link_text' ),
+			'link_url'    => ean_get_theme_value( 'ean_home_feature_1_link_url' ),
+		),
+		array(
+			'title'       => ean_get_theme_value( 'ean_home_feature_2_title' ),
+			'description' => ean_get_theme_value( 'ean_home_feature_2_description' ),
+			'link_text'   => ean_get_theme_value( 'ean_home_feature_2_link_text' ),
+			'link_url'    => ean_get_theme_value( 'ean_home_feature_2_link_url' ),
+		),
+		array(
+			'title'       => ean_get_theme_value( 'ean_home_feature_3_title' ),
+			'description' => ean_get_theme_value( 'ean_home_feature_3_description' ),
+			'link_text'   => ean_get_theme_value( 'ean_home_feature_3_link_text' ),
+			'link_url'    => ean_get_theme_value( 'ean_home_feature_3_link_url' ),
+		),
+	);
+}
+
+function ean_get_home_stats() {
+	return array(
+		array(
+			'value' => ean_get_theme_value( 'ean_home_stat_1_value' ),
+			'label' => ean_get_theme_value( 'ean_home_stat_1_label' ),
+		),
+		array(
+			'value' => ean_get_theme_value( 'ean_home_stat_2_value' ),
+			'label' => ean_get_theme_value( 'ean_home_stat_2_label' ),
+		),
+		array(
+			'value' => ean_get_theme_value( 'ean_home_stat_3_value' ),
+			'label' => ean_get_theme_value( 'ean_home_stat_3_label' ),
+		),
+		array(
+			'value' => ean_get_theme_value( 'ean_home_stat_4_value' ),
+			'label' => ean_get_theme_value( 'ean_home_stat_4_label' ),
+		),
+	);
+}
+
+function ean_get_home_service_cards() {
+	return array(
+		array(
+			'title'       => ean_get_theme_value( 'ean_home_service_1_title' ),
+			'description' => ean_get_theme_value( 'ean_home_service_1_description' ),
+			'url'         => ean_get_theme_value( 'ean_home_service_1_url' ),
+		),
+		array(
+			'title'       => ean_get_theme_value( 'ean_home_service_2_title' ),
+			'description' => ean_get_theme_value( 'ean_home_service_2_description' ),
+			'url'         => ean_get_theme_value( 'ean_home_service_2_url' ),
+		),
+		array(
+			'title'       => ean_get_theme_value( 'ean_home_service_3_title' ),
+			'description' => ean_get_theme_value( 'ean_home_service_3_description' ),
+			'url'         => ean_get_theme_value( 'ean_home_service_3_url' ),
+		),
+		array(
+			'title'       => ean_get_theme_value( 'ean_home_service_4_title' ),
+			'description' => ean_get_theme_value( 'ean_home_service_4_description' ),
+			'url'         => ean_get_theme_value( 'ean_home_service_4_url' ),
+		),
+		array(
+			'title'       => ean_get_theme_value( 'ean_home_service_5_title' ),
+			'description' => ean_get_theme_value( 'ean_home_service_5_description' ),
+			'url'         => ean_get_theme_value( 'ean_home_service_5_url' ),
+		),
+		array(
+			'title'       => ean_get_theme_value( 'ean_home_service_6_title' ),
+			'description' => ean_get_theme_value( 'ean_home_service_6_description' ),
+			'url'         => ean_get_theme_value( 'ean_home_service_6_url' ),
+		),
+	);
 }

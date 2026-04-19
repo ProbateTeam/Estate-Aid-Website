@@ -10,6 +10,9 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 $social_links = ean_get_social_links();
+$contact_phone = ean_get_theme_value( 'ean_contact_phone' );
+$phone_link    = ean_get_theme_value( 'ean_contact_phone_link' );
+$contact_email = ean_get_theme_value( 'ean_contact_email' );
 ?>
 </main>
 
@@ -20,9 +23,9 @@ $social_links = ean_get_social_links();
 				<?php if ( is_active_sidebar( 'footer-1' ) ) : ?>
 					<?php dynamic_sidebar( 'footer-1' ); ?>
 				<?php else : ?>
-					<h2 class="ean-footer-title"><?php esc_html_e( 'estate aid network', 'estate-aid-network' ); ?></h2>
-					<p class="ean-footer-tagline"><?php esc_html_e( 'your estate administration concierge', 'estate-aid-network' ); ?></p>
-					<p><?php esc_html_e( 'connecting families with trusted professionals for every stage of probate and estate settlement.', 'estate-aid-network' ); ?></p>
+					<h2 class="ean-footer-title"><?php echo esc_html( ean_get_theme_value( 'ean_footer_about_title' ) ); ?></h2>
+					<p class="ean-footer-tagline"><?php echo esc_html( ean_get_theme_value( 'ean_footer_tagline' ) ); ?></p>
+					<p><?php echo esc_html( ean_get_theme_value( 'ean_footer_description' ) ); ?></p>
 				<?php endif; ?>
 			</div>
 
@@ -94,10 +97,10 @@ $social_links = ean_get_social_links();
 						<input id="ean-newsletter-email" type="email" name="email" placeholder="<?php esc_attr_e( 'Email address', 'estate-aid-network' ); ?>">
 						<button type="submit"><?php esc_html_e( 'Subscribe', 'estate-aid-network' ); ?></button>
 					</form>
-					<p class="ean-privacy-note"><?php esc_html_e( 'we respect your privacy', 'estate-aid-network' ); ?></p>
+					<p class="ean-privacy-note"><?php echo esc_html( ean_get_theme_value( 'ean_newsletter_privacy' ) ); ?></p>
 					<div class="ean-footer-contact">
-						<a href="tel:5551234567">(555) 123-4567</a>
-						<a href="mailto:help@estateaid.net">help@estateaid.net</a>
+						<a href="tel:<?php echo esc_attr( preg_replace( '/[^0-9+]/', '', $phone_link ) ); ?>"><?php echo esc_html( $contact_phone ); ?></a>
+						<a href="mailto:<?php echo esc_attr( sanitize_email( $contact_email ) ); ?>"><?php echo esc_html( $contact_email ); ?></a>
 					</div>
 				<?php endif; ?>
 
