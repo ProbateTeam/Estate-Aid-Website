@@ -14,6 +14,7 @@ define( 'EAN_THEME_DIR', get_template_directory() );
 define( 'EAN_THEME_URI', get_template_directory_uri() );
 
 require_once EAN_THEME_DIR . '/inc/customizer.php';
+require_once EAN_THEME_DIR . '/inc/directory.php';
 
 function ean_theme_setup() {
 	load_theme_textdomain( 'estate-aid-network', EAN_THEME_DIR . '/languages' );
